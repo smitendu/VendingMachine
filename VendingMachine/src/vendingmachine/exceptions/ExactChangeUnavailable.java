@@ -1,9 +1,7 @@
 package vendingmachine.exceptions;
 
 public class ExactChangeUnavailable extends Exception{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public ExactChangeUnavailable () {

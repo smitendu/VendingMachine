@@ -22,14 +22,14 @@ public class CoinPoolManager implements Manager {
 	}
 	
 	public void initialize() {
-		this.moneyPool.put(Denominations.ONE_PENNY.getValueOfDenomination(), 0);//1
-		this.moneyPool.put(Denominations.TWO_PENCE.getValueOfDenomination(), 0);//2
-		this.moneyPool.put(Denominations.FIVE_PENCE.getValueOfDenomination(), 0);//5
-		this.moneyPool.put(Denominations.TEN_PENCE.getValueOfDenomination(), 0);//10
-		this.moneyPool.put(Denominations.TWENTY_PENCE.getValueOfDenomination(), 0);//20
-		this.moneyPool.put(Denominations.FIFTY_PENCE.getValueOfDenomination(), 0);//50
-		this.moneyPool.put(Denominations.ONE_POUND.getValueOfDenomination(), 10);//100
-		this.moneyPool.put(Denominations.TWO_POUNDS.getValueOfDenomination(), 10);//200
+		this.moneyPool.put(Denominations.ONE_PENNY.getValueOfDenomination(), 10);
+		this.moneyPool.put(Denominations.TWO_PENCE.getValueOfDenomination(), 10);
+		this.moneyPool.put(Denominations.FIVE_PENCE.getValueOfDenomination(), 10);
+		this.moneyPool.put(Denominations.TEN_PENCE.getValueOfDenomination(), 10);
+		this.moneyPool.put(Denominations.TWENTY_PENCE.getValueOfDenomination(), 10);
+		this.moneyPool.put(Denominations.FIFTY_PENCE.getValueOfDenomination(), 10);
+		this.moneyPool.put(Denominations.ONE_POUND.getValueOfDenomination(), 10);
+		this.moneyPool.put(Denominations.TWO_POUNDS.getValueOfDenomination(), 10);
 
 	}
 	

@@ -73,66 +73,27 @@ public class InventoryManager implements Manager{
 		Map<Product, Integer> productStock = new HashMap <Product, Integer> ();
 		productStock.put(product, stock);
 		this.inventory.getList().put(slotId, productStock);
-		/*
-		 * if(product != null && product.getProductName()!=null &&
-		 * this.inventory.getList().entrySet().stream().filter(p ->
-		 * p.getKey().getProductName().equals(product.getProductName())).findAny().
-		 * orElse(null) != null) { throw new
-		 * RuntimeException("Product with this productId: " + product.getProductName() +
-		 * " already exist. Please add new product with uniq productId"); }
-		 * this.inventory.getList().put(product, stock);
-		 */
 	}
 	
-	/*public void removeProducts(String productId) {
-		this.inventory.getList().entrySet().removeIf(pr -> pr.getKey().getProductName().equals(productId));
-	}*/
 	public void removeSlot(Integer slotId) {
 		this.inventory.getList().entrySet().removeIf(pr -> pr.getKey().equals(slotId));
 	}
 	
-	/*public boolean hasProduct(String productId) {
-		return this.inventory.getList().entrySet().stream().filter(p -> p.getKey().getProductName().equals(productId)).count() > 0;
-	}*/
 	public boolean isSlotTaken(Integer slotId) {
 		return slotId != null && this.inventory.getList().containsKey(slotId);
 	}
+
 	public boolean hasProduct(Integer slotId, String productId) {
 		return isSlotTaken(slotId) 
 				&& this.inventory.getList().get(slotId).entrySet().stream()
 					.filter(p -> p.getKey().getProductName().equals(productId)).count() > 0;
 	}
 	
-	/*
-	 * public boolean isProductInStock(String productId) {
-	 * 
-	 * Integer productStock = this.inventory.getList().entrySet().stream() .filter(e
-	 * -> e.getKey().getProductName().equals(productId)).map(Map.Entry::getValue).
-	 * findAny().orElse(null);
-	 * 
-	 * if(productStock != null && productStock > 0) return true;
-	 * 
-	 * return false;
-	 * 
-	 * }
-	 */
-	
 	public boolean isSlotOutOfStock(Integer slotId) {		
 		Integer stock = getStock(slotId);
 		return stock == null || stock == 0;
 	}
-	
-	/*public void reduceProductCount(String productId) {
-		if(!hasProduct(productId)) {
-			throw new RuntimeException ("Product " + productId +" not found");
-		}
-		if(!isProductInStock(productId)) {
-			throw new RuntimeException ("Product " + productId + " is already not in stock, cannot reduce its stock further");
-		}
-		this.inventory.getList().entrySet().stream()
-			.filter(obj->obj.getKey().getProductName().equals(productId)).findFirst().ifPresent(o->o.setValue(o.getValue()-1));
-	}*/
-	
+		
 	public void reduceProductCount(Integer slotId) throws Exception {
 		if(!isSlotTaken(slotId)) {
 			throw new Exception ("Slot " + slotId +" not found");
