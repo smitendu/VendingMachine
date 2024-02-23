@@ -1,4 +1,4 @@
-package vendingmachine;
+package vendingmachine.interact;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class InputSeeker {
+import vendingmachine.VendingMachine;
+
+public class UserInputHandler {
 	Scanner input = new Scanner(System.in); 
 	
 	public Integer selectProductMenu(VendingMachine vm) {

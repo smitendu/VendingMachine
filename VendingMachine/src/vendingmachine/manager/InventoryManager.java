@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class InventoryManager implements Manager{
+public class InventoryManager{
 	private Set<Integer> validSlots;
 
 	private Inventory inventory;

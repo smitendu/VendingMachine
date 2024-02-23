@@ -4,9 +4,10 @@ import java.util.Collections;
 import java.util.List;
 
 import vendingmachine.VendingMachine;
+import vendingmachine.interact.UserInputSeeker;
 import vendingmachine.states.StateFactory.States;
 
-public class ProductSelected  implements State<States, VendingMachine> {
+public class ProductSelected  implements State<States, VendingMachine>, UserInputSeeker {
 	VendingMachine vm;
 	States state;
 
@@ -23,7 +24,7 @@ public class ProductSelected  implements State<States, VendingMachine> {
 	public Integer collectCash() {
 
 		List<String> coinsInserted = Collections.emptyList();
-		coinsInserted = seeker.collectCashMenu(vm);
+		coinsInserted = inputHandler.collectCashMenu(vm);
 		if(coinsInserted.contains("EXIT")) {
 			coinsInserted.remove("EXIT");
 			vm.setCoinsInserted(coinsInserted);

@@ -3,9 +3,10 @@ package vendingmachine.states;
 import vendingmachine.states.StateFactory.States;
 
 import vendingmachine.VendingMachine;
+import vendingmachine.interact.UserInputSeeker;
 import vendingmachine.model.Product;
 
-public class Ready implements State<States, VendingMachine> {
+public class Ready implements State<States, VendingMachine>, UserInputSeeker {
 	VendingMachine vm;
 	States state;
 	public Ready(VendingMachine vm) {
@@ -14,7 +15,7 @@ public class Ready implements State<States, VendingMachine> {
 	}
 
 	public Integer selectProduct() {
-		Integer slotId = seeker.selectProductMenu(vm);
+		Integer slotId = inputHandler.selectProductMenu(vm);
 		if(slotId == -1) {
 			vm.shutDown();
 			return -1;

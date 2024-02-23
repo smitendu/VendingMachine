@@ -13,7 +13,7 @@ import vendingmachine.exceptions.ExactChangeUnavailable;
 import vendingmachine.exceptions.InsufficientMoneyProvided;
 import vendingmachine.model.Denominations;
 
-public class CoinPoolManager implements Manager {
+public class CoinPoolManager {
 	Map<Double, Integer> moneyPool;
 	
 	public CoinPoolManager() {
