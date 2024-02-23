@@ -1,6 +1,7 @@
 package vendingmachine.states;
 
 import vendingmachine.VendingMachine;
+import vendingmachine.interact.ConsoleColors;
 import vendingmachine.model.Product;
 import vendingmachine.states.StateFactory.States;
 
@@ -28,7 +29,7 @@ public class ChangeReturned  implements State<States, VendingMachine> {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		System.out.println("Please collect the product : " + product.getProductName());
+		System.out.println(ConsoleColors.PURPLE_BOLD + "Please collect the product : " + product.getProductName() + ConsoleColors.RESET);
 		vm.setVendingMachineState(StateFactory.getState(States.PRODUCT_DISPENSED, vm));
 		return 1;
 	}

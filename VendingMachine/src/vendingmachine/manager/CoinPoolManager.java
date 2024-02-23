@@ -196,19 +196,19 @@ public class CoinPoolManager {
 			cashAccepted = acceptCash(coinsInserted);
 			coinsReturned = updateCash(difference);
 		} catch (InsufficientMoneyProvided e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 			throw e;
 		}
 		catch (ExactChangeUnavailable e) {
 			coinsReturned = rejectCash(coinsInserted, cashAccepted);
-			System.out.println(e.getMessage());
-			System.out.println(coinsReturned);
+			System.err.println(e.getMessage());
+			System.err.println(coinsReturned);
 			throw e;
 		}
 		catch (Exception e) {
 			coinsReturned = rejectCash(coinsInserted, cashAccepted);
-			System.out.println(e.getMessage());
-			System.out.println(coinsReturned);
+			System.err.println(e.getMessage());
+			System.err.println(coinsReturned);
 			throw e;
 		}
 		

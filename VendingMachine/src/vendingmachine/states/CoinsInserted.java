@@ -6,6 +6,7 @@ import java.util.List;
 import vendingmachine.VendingMachine;
 import vendingmachine.exceptions.ExactChangeUnavailable;
 import vendingmachine.exceptions.InsufficientMoneyProvided;
+import vendingmachine.interact.ConsoleColors;
 import vendingmachine.model.Product;
 import vendingmachine.states.StateFactory.States;
 
@@ -47,7 +48,8 @@ public class CoinsInserted  implements State<States, VendingMachine> {
 			vm.setVendingMachineState(StateFactory.getState(States.PRODUCT_SELECTED, vm));
 			return 1;
 		}
-		System.out.println("Please collect the change : " + coinsReturned);
+		
+		System.out.println(ConsoleColors.PURPLE_BOLD + "Please collect the change : " + coinsReturned + ConsoleColors.RESET);
 		vm.setCoinsReturned(true);
 		vm.setVendingMachineState(StateFactory.getState(States.CHANGE_RETURNED, vm));
 		return 1;
